@@ -1,0 +1,144 @@
+Evaluation with Avg
+        rouge-1:        P: 37.59        R: 45.46        F1: 40.82
+        rouge-2:        P: 12.86        R: 15.06        F1: 13.84
+        rouge-3:        P:  5.00        R:  5.95        F1:  5.43
+        rouge-4:        P:  2.86        R:  3.33        F1:  3.08
+        rouge-l:        P: 41.87        R: 49.07        F1: 44.93
+        rouge-w:        P: 32.40        R: 25.75        F1: 28.45
+
+Evaluation with Best
+        rouge-1:        P: 37.59        R: 45.46        F1: 40.82
+        rouge-2:        P: 12.86        R: 15.06        F1: 13.84
+        rouge-3:        P:  5.00        R:  5.95        F1:  5.43
+        rouge-4:        P:  2.86        R:  3.33        F1:  3.08
+        rouge-l:        P: 41.87        R: 49.07        F1: 44.93
+        rouge-w:        P: 32.40        R: 25.75        F1: 28.45
+
+Evaluation with Individual
+        Hypothesis #0 & Reference #0:
+                rouge-1:        P: 50.00        R: 62.50        F1: 55.56
+        Hypothesis #1 & Reference #0:
+                rouge-1:        P: 50.00        R: 50.00        F1: 50.00
+        Hypothesis #2 & Reference #0:
+                rouge-1:        P: 60.00        R: 66.67        F1: 63.16
+        Hypothesis #3 & Reference #0:
+                rouge-1:        P: 25.00        R: 22.22        F1: 23.53
+        Hypothesis #4 & Reference #0:
+                rouge-1:        P: 36.36        R: 57.14        F1: 44.44
+        Hypothesis #5 & Reference #0:
+                rouge-1:        P: 22.22        R: 22.22        F1: 22.22
+        Hypothesis #6 & Reference #0:
+                rouge-1:        P: 46.15        R: 66.67        F1: 54.55
+        Hypothesis #7 & Reference #0:
+                rouge-1:        P: 44.44        R: 50.00        F1: 47.06
+        Hypothesis #8 & Reference #0:
+                rouge-1:        P: 25.00        R: 28.57        F1: 26.67
+        Hypothesis #9 & Reference #0:
+                rouge-1:        P: 16.67        R: 28.57        F1: 21.05
+
+        Hypothesis #0 & Reference #0:
+                rouge-2:        P: 22.22        R: 28.57        F1: 25.00
+        Hypothesis #1 & Reference #0:
+                rouge-2:        P: 14.29        R: 14.29        F1: 14.29
+        Hypothesis #2 & Reference #0:
+                rouge-2:        P: 44.44        R: 50.00        F1: 47.06
+        Hypothesis #3 & Reference #0:
+                rouge-2:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #4 & Reference #0:
+                rouge-2:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #5 & Reference #0:
+                rouge-2:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #6 & Reference #0:
+                rouge-2:        P:  8.33        R: 12.50        F1: 10.00
+        Hypothesis #7 & Reference #0:
+                rouge-2:        P: 25.00        R: 28.57        F1: 26.67
+        Hypothesis #8 & Reference #0:
+                rouge-2:        P: 14.29        R: 16.67        F1: 15.38
+        Hypothesis #9 & Reference #0:
+                rouge-2:        P:  0.00        R:  0.00        F1:  0.00
+
+        Hypothesis #0 & Reference #0:
+                rouge-3:        P: 12.50        R: 16.67        F1: 14.29
+        Hypothesis #1 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #2 & Reference #0:
+                rouge-3:        P: 37.50        R: 42.86        F1: 40.00
+        Hypothesis #3 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #4 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #5 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #6 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #7 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #8 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #9 & Reference #0:
+                rouge-3:        P:  0.00        R:  0.00        F1:  0.00
+
+        Hypothesis #0 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #1 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #2 & Reference #0:
+                rouge-4:        P: 28.57        R: 33.33        F1: 30.77
+        Hypothesis #3 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #4 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #5 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #6 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #7 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #8 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+        Hypothesis #9 & Reference #0:
+                rouge-4:        P:  0.00        R:  0.00        F1:  0.00
+
+        Hypothesis #0 & Reference #0:
+                rouge-l:        P: 56.12        R: 67.59        F1: 61.33
+        Hypothesis #1 & Reference #0:
+                rouge-l:        P: 44.16        R: 44.16        F1: 44.16
+        Hypothesis #2 & Reference #0:
+                rouge-l:        P: 65.33        R: 71.33        F1: 68.20
+        Hypothesis #3 & Reference #0:
+                rouge-l:        P: 31.50        R: 28.55        F1: 29.95
+        Hypothesis #4 & Reference #0:
+                rouge-l:        P: 43.04        R: 62.73        F1: 51.05
+        Hypothesis #5 & Reference #0:
+                rouge-l:        P: 28.55        R: 28.55        F1: 28.55
+        Hypothesis #6 & Reference #0:
+                rouge-l:        P: 45.10        R: 61.27        F1: 51.96
+        Hypothesis #7 & Reference #0:
+                rouge-l:        P: 50.88        R: 56.12        F1: 53.37
+        Hypothesis #8 & Reference #0:
+                rouge-l:        P: 31.50        R: 35.21        F1: 33.25
+        Hypothesis #9 & Reference #0:
+                rouge-l:        P: 22.47        R: 35.21        F1: 27.43
+
+        Hypothesis #0 & Reference #0:
+                rouge-w:        P: 42.88        R: 35.36        F1: 38.76
+        Hypothesis #1 & Reference #0:
+                rouge-w:        P: 33.78        R: 22.29        F1: 26.86
+        Hypothesis #2 & Reference #0:
+                rouge-w:        P: 55.97        R: 40.07        F1: 46.71
+        Hypothesis #3 & Reference #0:
+                rouge-w:        P: 22.27        R: 12.76        F1: 16.22
+        Hypothesis #4 & Reference #0:
+                rouge-w:        P: 30.64        R: 32.63        F1: 31.60
+        Hypothesis #5 & Reference #0:
+                rouge-w:        P: 19.80        R: 12.76        F1: 15.52
+        Hypothesis #6 & Reference #0:
+                rouge-w:        P: 34.40        R: 32.02        F1: 33.17
+        Hypothesis #7 & Reference #0:
+                rouge-w:        P: 44.44        R: 32.99        F1: 37.87
+        Hypothesis #8 & Reference #0:
+                rouge-w:        P: 25.00        R: 19.36        F1: 21.82
+        Hypothesis #9 & Reference #0:
+                rouge-w:        P: 14.85        R: 17.25        F1: 15.96
+
+
