@@ -1,2 +1,5 @@
 .idea
 *.metric
+*.predict
+checkpoints
+__pycache__
