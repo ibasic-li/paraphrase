@@ -18,7 +18,7 @@ def rouge_metric(all_hypothesis, all_references, aggregator_list):
     :param aggregator_list: ['Avg', 'Best', 'Individual']
     :return:
     """
-    out_path = os.path.join('.', 'output', "rouge_{}.metric".format(time.time()))
+    out_path = os.path.join('.', '../output', "rouge_{}.metric".format(time.time()))
 
     with open(out_path, 'w') as out_file:
         for aggregator in tqdm(aggregator_list):
@@ -91,50 +91,25 @@ def metric_from_file(hypothesis_path, references_path, size):
         all_hypothesis = hypothesis_file.readlines()
     with open(references_path, 'r') as references_file:
         all_references = references_file.readlines()
-    aggregator_list = ['Avg', 'Best', 'Individual']
+    # aggregator_list = ['Avg', 'Best', 'Individual']
+    aggregator_list = ['Avg']
     start_time = time.time()
+    if size == -1:
+        size = len(all_hypothesis)
     rouge_metric(all_hypothesis[:size], all_references[:size], aggregator_list)
     end_time = time.time()
     duration = end_time - start_time
     print("持续时间：", duration)
 
 
-def hello():
-    all_hypothesis = [
-        'a bicycle replica with a clock as the front wheel',
-        'the bike has a clock as a tire',
-        'a black honda motorcycle parked in front of a garage',
-        'a honda motorcycle parked in a grass driveway',
-        'a room with blue walls and a white sink and door',
-        'blue and white color scheme in a small bathroom',
-        'a car that seems to be parked illegally behind a legally parked car',
-        'two cars parked on the sidewalk on the street',
-        'a large passenger airplane flying through the air',
-        'there is a gol plane taking off in a partly cloudy sky',
-    ]
 
-    all_references = [
-        'a clock tower with a clock on the',
-        'a clock tower with a clock on the',
-        'a large white car parked in front of a',
-        'a large metal wagon with a clock on the',
-        'a kitchen with a refrigerator refrigerator and',
-        'a close up of a white refrigerator with a',
-        'a car parked in a car parked on a',
-        'a clock tower with two cars on the',
-        'a large train tower with a large',
-        'a large refrigerator with a large metal',
-    ]
-
-    aggregator_list = ['Avg', 'Best', 'Individual']
-    rouge_metric(all_hypothesis, all_references, aggregator_list)
 
 
 if __name__ == "__main__":
-    hypothesis_path = './data/predict/result_1632464778.2831151.predict'
-    references_path = './data/mscoco/test_target.txt'
+    hypothesis_path = '../data/predict/mscoco_gen_chen.predict'
+    references_path = '../data/mscoco/test_target.txt'
     # 句子个数
-    size = 10000
+    size = -1
     metric_from_file(hypothesis_path, references_path, size)
 
 """
@@ -153,4 +128,42 @@ Evaluation with Best
 	rouge-4:	P:  1.49	R:  1.10	F1:  1.24
 	rouge-l:	P: 40.27	R: 33.57	F1: 36.27
 	rouge-w:	P: 30.48	R: 15.45	F1: 20.20
+	
+
+t5 10000条数据的评测结果
+Evaluation with Avg
+	rouge-1:	P: 41.32	R: 38.63	F1: 39.16
+	rouge-2:	P: 13.14	R: 12.19	F1: 12.36
+	rouge-3:	P:  4.85	R:  4.48	F1:  4.54
+	rouge-4:	P:  2.02	R:  1.85	F1:  1.87
+	rouge-l:	P: 41.57	R: 39.31	F1: 39.86
+	rouge-w:	P: 31.84	R: 18.77	F1: 23.13
+	
+
+	
+Evaluation with Best
+	rouge-1:	P: 41.32	R: 38.63	F1: 39.16
+	rouge-2:	P: 13.14	R: 12.19	F1: 12.36
+	rouge-3:	P:  4.85	R:  4.48	F1:  4.54
+	rouge-4:	P:  2.02	R:  1.85	F1:  1.87
+	rouge-l:	P: 41.57	R: 39.31	F1: 39.86
+	rouge-w:	P: 31.84	R: 18.77	F1: 23.13
+	
+t5 100000条数据的评测结果	
+Evaluation with Avg
+	rouge-1:	P: 40.96	R: 37.93	F1: 38.60
+	rouge-2:	P: 12.98	R: 11.89	F1: 12.12
+	rouge-3:	P:  4.65	R:  4.23	F1:  4.30
+	rouge-4:	P:  1.83	R:  1.64	F1:  1.67
+	rouge-l:	P: 41.81	R: 39.17	F1: 39.88
+	rouge-w:	P: 32.00	R: 18.68	F1: 23.08
+
+t5 全量test数据的评测结果		
+Evaluation with Avg
+	rouge-1:	P: 41.34	R: 38.15	F1: 38.88
+	rouge-2:	P: 13.24	R: 12.10	F1: 12.34
+	rouge-3:	P:  4.70	R:  4.27	F1:  4.35
+	rouge-4:	P:  1.83	R:  1.65	F1:  1.68
+	rouge-l:	P: 42.01	R: 39.25	F1: 40.00
+	rouge-w:	P: 32.16	R: 18.70	F1: 23.13
 """
