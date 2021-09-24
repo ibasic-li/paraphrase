@@ -19,6 +19,7 @@ def rouge_metric(all_hypothesis, all_references, aggregator_list):
     :return:
     """
     out_path = os.path.join('.', 'output', "rouge_{}.metric".format(time.time()))
+
     with open(out_path, 'w') as out_file:
         for aggregator in tqdm(aggregator_list):
             out_title = 'Evaluation with {}'.format(aggregator)
@@ -74,9 +75,10 @@ def rouge_metric(all_hypothesis, all_references, aggregator_list):
                     out_file.write(out_str + '\n')
                     print(out_str)
             print()
+            print("输出文件路径：", out_path)
 
 
-def metric_from_file(hypothesis_path, references_path):
+def metric_from_file(hypothesis_path, references_path, size):
     """
     1000条大约耗时4.3秒
     :param hypothesis_path:
@@ -91,13 +93,13 @@ def metric_from_file(hypothesis_path, references_path):
         all_references = references_file.readlines()
     aggregator_list = ['Avg', 'Best', 'Individual']
     start_time = time.time()
-    rouge_metric(all_hypothesis[:10000], all_references[:10000], aggregator_list)
+    rouge_metric(all_hypothesis[:size], all_references[:size], aggregator_list)
     end_time = time.time()
     duration = end_time - start_time
     print("持续时间：", duration)
 
 
-def test1():
+def hello():
     all_hypothesis = [
         'a bicycle replica with a clock as the front wheel',
         'the bike has a clock as a tire',
@@ -126,3 +128,29 @@ def test1():
 
     aggregator_list = ['Avg', 'Best', 'Individual']
     rouge_metric(all_hypothesis, all_references, aggregator_list)
+
+
+if __name__ == "__main__":
+    hypothesis_path = './data/predict/result_1632464778.2831151.predict'
+    references_path = './data/mscoco/test_target.txt'
+    # 句子个数
+    size = 10000
+    metric_from_file(hypothesis_path, references_path, size)
+
+"""
+neural-paraphrase-generation 10000条数据的评测结果
+Evaluation with Avg
+	rouge-1:	P: 37.27	R: 29.86	F1: 32.71
+	rouge-2:	P: 10.40	R:  8.14	F1:  8.98
+	rouge-3:	P:  3.42	R:  2.60	F1:  2.90
+	rouge-4:	P:  1.49	R:  1.10	F1:  1.24
+	rouge-l:	P: 40.27	R: 33.57	F1: 36.27
+	rouge-w:	P: 30.48	R: 15.45	F1: 20.20
+Evaluation with Best
+	rouge-1:	P: 37.27	R: 29.86	F1: 32.71
+	rouge-2:	P: 10.40	R:  8.14	F1:  8.98
+	rouge-3:	P:  3.42	R:  2.60	F1:  2.90
+	rouge-4:	P:  1.49	R:  1.10	F1:  1.24
+	rouge-l:	P: 40.27	R: 33.57	F1: 36.27
+	rouge-w:	P: 30.48	R: 15.45	F1: 20.20
+"""
