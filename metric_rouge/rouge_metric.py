@@ -106,6 +106,7 @@ def metric_from_file(hypothesis_path, references_path, size):
 
 
 if __name__ == "__main__":
+    # hypothesis_path = '../data/predict/mscoco_gen_chen.predict'
     hypothesis_path = '../data/predict/mscoco_gen_chen.predict'
     references_path = '../data/mscoco/test_target.txt'
     # 句子个数
