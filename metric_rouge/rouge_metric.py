@@ -21,7 +21,7 @@ def rouge_metric(all_hypothesis, all_references, aggregator_list):
     out_path = os.path.join('.', '../output', "rouge_{}.metric".format(time.time()))
 
     with open(out_path, 'w') as out_file:
-        for aggregator in tqdm(aggregator_list):
+        for aggregator in aggregator_list:
             out_title = 'Evaluation with {}'.format(aggregator)
             out_file.write(out_title + '\n')
             print(out_title)
@@ -106,58 +106,22 @@ def metric_from_file(hypothesis_path, references_path, size):
 
 
 if __name__ == "__main__":
-    # hypothesis_path = '../data/predict/mscoco_gen_chen.predict'
-    hypothesis_path = '../data/predict/mscoco_gen_chen.predict'
+    hypothesis_path = '../data/predict/mscoco_neural_lstm.pred'
+    # hypothesis_path = '../data/predict/mscoco_gen_chen.pred'
     references_path = '../data/mscoco/test_target.txt'
     # 句子个数
     size = -1
     metric_from_file(hypothesis_path, references_path, size)
 
 """
-neural-paraphrase-generation 10000条数据的评测结果
-Evaluation with Avg
-	rouge-1:	P: 37.27	R: 29.86	F1: 32.71
-	rouge-2:	P: 10.40	R:  8.14	F1:  8.98
-	rouge-3:	P:  3.42	R:  2.60	F1:  2.90
-	rouge-4:	P:  1.49	R:  1.10	F1:  1.24
-	rouge-l:	P: 40.27	R: 33.57	F1: 36.27
-	rouge-w:	P: 30.48	R: 15.45	F1: 20.20
-Evaluation with Best
-	rouge-1:	P: 37.27	R: 29.86	F1: 32.71
-	rouge-2:	P: 10.40	R:  8.14	F1:  8.98
-	rouge-3:	P:  3.42	R:  2.60	F1:  2.90
-	rouge-4:	P:  1.49	R:  1.10	F1:  1.24
-	rouge-l:	P: 40.27	R: 33.57	F1: 36.27
-	rouge-w:	P: 30.48	R: 15.45	F1: 20.20
-	
+neural-lstm 全量test数据的评测结果		
+    rouge-1:	P: 38.18	R: 31.26	F1: 33.92
+	rouge-2:	P: 11.38	R:  9.14	F1:  9.98
+	rouge-3:	P:  4.02	R:  3.16	F1:  3.47
+	rouge-4:	P:  1.74	R:  1.33	F1:  1.47
+	rouge-l:	P: 40.97	R: 34.79	F1: 37.28
+	rouge-w:	P: 31.16	R: 16.16	F1: 20.97
 
-t5 10000条数据的评测结果
-Evaluation with Avg
-	rouge-1:	P: 41.32	R: 38.63	F1: 39.16
-	rouge-2:	P: 13.14	R: 12.19	F1: 12.36
-	rouge-3:	P:  4.85	R:  4.48	F1:  4.54
-	rouge-4:	P:  2.02	R:  1.85	F1:  1.87
-	rouge-l:	P: 41.57	R: 39.31	F1: 39.86
-	rouge-w:	P: 31.84	R: 18.77	F1: 23.13
-	
-
-	
-Evaluation with Best
-	rouge-1:	P: 41.32	R: 38.63	F1: 39.16
-	rouge-2:	P: 13.14	R: 12.19	F1: 12.36
-	rouge-3:	P:  4.85	R:  4.48	F1:  4.54
-	rouge-4:	P:  2.02	R:  1.85	F1:  1.87
-	rouge-l:	P: 41.57	R: 39.31	F1: 39.86
-	rouge-w:	P: 31.84	R: 18.77	F1: 23.13
-	
-t5 100000条数据的评测结果	
-Evaluation with Avg
-	rouge-1:	P: 40.96	R: 37.93	F1: 38.60
-	rouge-2:	P: 12.98	R: 11.89	F1: 12.12
-	rouge-3:	P:  4.65	R:  4.23	F1:  4.30
-	rouge-4:	P:  1.83	R:  1.64	F1:  1.67
-	rouge-l:	P: 41.81	R: 39.17	F1: 39.88
-	rouge-w:	P: 32.00	R: 18.68	F1: 23.08
 
 t5 全量test数据的评测结果		
 Evaluation with Avg
@@ -167,4 +131,22 @@ Evaluation with Avg
 	rouge-4:	P:  1.83	R:  1.65	F1:  1.68
 	rouge-l:	P: 42.01	R: 39.25	F1: 40.00
 	rouge-w:	P: 32.16	R: 18.70	F1: 23.13
+	
+neural-lstm 10000条数据的评测结果
+Evaluation with Avg
+	rouge-1:	P: 37.27	R: 29.86	F1: 32.71
+	rouge-2:	P: 10.40	R:  8.14	F1:  8.98
+	rouge-3:	P:  3.42	R:  2.60	F1:  2.90
+	rouge-4:	P:  1.49	R:  1.10	F1:  1.24
+	rouge-l:	P: 40.27	R: 33.57	F1: 36.27
+	rouge-w:	P: 30.48	R: 15.45	F1: 20.20
+		
+t5 100000条数据的评测结果	
+Evaluation with Avg
+	rouge-1:	P: 40.96	R: 37.93	F1: 38.60
+	rouge-2:	P: 12.98	R: 11.89	F1: 12.12
+	rouge-3:	P:  4.65	R:  4.23	F1:  4.30
+	rouge-4:	P:  1.83	R:  1.64	F1:  1.67
+	rouge-l:	P: 41.81	R: 39.17	F1: 39.88
+	rouge-w:	P: 32.00	R: 18.68	F1: 23.08
 """

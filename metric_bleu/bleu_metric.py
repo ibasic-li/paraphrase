@@ -52,9 +52,9 @@ def metric_from_file(hypothesis_path, references_path, size):
 
 if __name__ == "__main__":
     # BLEU = 6.41 34.8/10.7/3.5/1.3 (BP = 1.000 ratio = 1.019 hyp_len = 1728602 ref_len = 1695740)
-    hypothesis_path = '../data/predict/mscoco_gen_chen.predict'
-    # 5.05 36.5/10.2/3.3/1.4 (BP = 0.780 ratio = 0.801 hyp_len = 84090 ref_len = 104997)
-    # hypothesis_path = '../data/predict/result_1632464778.2831151.predict'
+    # hypothesis_path = '../data/predict/mscoco_gen_chen.pred'
+    # 5.72 37.2/11.1/3.8/1.7 (BP = 0.800 ratio = 0.818 hyp_len = 1386274 ref_len = 1695740)
+    hypothesis_path = '../data/predict/mscoco_neural_lstm.pred'
     # BLEU = 100.00 100.0/100.0/100.0/100.0 (BP = 1.000 ratio = 1.000 hyp_len = 108 ref_len = 108)
     # hypothesis_path = '../data/mscoco/test_target.txt'
     references_path = '../data/mscoco/test_target.txt'
