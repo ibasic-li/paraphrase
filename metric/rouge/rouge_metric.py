@@ -18,7 +18,7 @@ def rouge_metric(all_hypothesis, all_references, aggregator_list):
     :param aggregator_list: ['Avg', 'Best', 'Individual']
     :return:
     """
-    out_path = os.path.join('.', '../output', "rouge_{}.metric".format(time.time()))
+    out_path = os.path.join('', '../output', "rouge_{}.metric".format(time.time()))
 
     with open(out_path, 'w') as out_file:
         for aggregator in aggregator_list:
@@ -106,9 +106,10 @@ def metric_from_file(hypothesis_path, references_path, size):
 
 
 if __name__ == "__main__":
-    hypothesis_path = '../data/predict/mscoco_neural_lstm.pred'
+    # hypothesis_path = '../data/predict/mscoco_neural_lstm.pred'
     # hypothesis_path = '../data/predict/mscoco_gen_chen.pred'
-    references_path = '../data/mscoco/test_target.txt'
+    hypothesis_path = '../../data/predict/mscoco_t5_all.pred'
+    references_path = '../../data/mscoco/test_target.txt'
     # 句子个数
     size = -1
     metric_from_file(hypothesis_path, references_path, size)
@@ -131,6 +132,14 @@ Evaluation with Avg
 	rouge-4:	P:  1.83	R:  1.65	F1:  1.68
 	rouge-l:	P: 42.01	R: 39.25	F1: 40.00
 	rouge-w:	P: 32.16	R: 18.70	F1: 23.13
+
+Evaluation with Avg
+	rouge-1:	P: 46.24	R: 42.79	F1: 43.89
+	rouge-2:	P: 18.57	R: 17.00	F1: 17.49
+	rouge-3:	P:  8.02	R:  7.27	F1:  7.50
+	rouge-4:	P:  3.90	R:  3.48	F1:  3.60
+	rouge-l:	P: 47.48	R: 44.64	F1: 45.61
+	rouge-w:	P: 36.92	R: 21.66	F1: 26.90
 	
 neural-lstm 10000条数据的评测结果
 Evaluation with Avg

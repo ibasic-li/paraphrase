@@ -3,3 +3,5 @@
 *.predict
 checkpoints
 __pycache__
+data
+.pytest_cache
