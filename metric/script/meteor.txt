@@ -1,0 +1,2 @@
+java -Xmx2G -jar meteor-1.5.jar ..\data\predict\qqp_5000_gen_1009.txt ..\data\qqp\tgt_test_1009.txt -l en -norm
+Final score:            0.3356532230441836
