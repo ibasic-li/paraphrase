@@ -56,9 +56,10 @@ if __name__ == "__main__":
     # hypothesis_path = '../data/predict/mscoco_t5_all.pred'
     # references_path = '../data/mscoco/test_target.txt'
     # BLEU = 0.03 5.0/0.1/0.0/0.0
-    hypothesis_path = '../../../data/predict/qqp_5000_gen_1009.txt'
-    references_path = '../../../data/qqp/tgt_test_1009.txt'
-
+    # hypothesis_path = '../../../data/predict/qqp_5000_gen_1009.txt'
+    # references_path = '../../../data/qqp/tgt_test_1009.txt'
+    hypothesis_path = '../../../data/predict/jl_qqp_5000_gen_1013.txt'
+    references_path = '../../../data/qqp/tgt_1013.txt'
     # 句子个数
     size = -1
     # bleu, chrf, ter

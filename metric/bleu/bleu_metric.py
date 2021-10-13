@@ -18,26 +18,31 @@ def bleu_metric(all_hypothesis, all_references):
     :param all_references:
     :return:
     """
-    out_path = os.path.join('', '../output', "rouge_{}.metric".format(time.time()))
-
-    with open(out_path, 'w') as out_file:
-        bleu = BLEU()
-        score = bleu.corpus_score(all_hypothesis, [all_references])
-        print(score)
-        out_file.write("{}".format(score))
-        print("输出文件路径：", out_path)
-
+    bleu = BLEU()
+    score = bleu.corpus_score(all_hypothesis, [all_references])
+    print(score)
+    # out_path = os.path.join('', '../output', "rouge_{}.metric".format(time.time()))
+    #
+    # with open(out_path, 'w') as out_file:
+    #     bleu = BLEU()
+    #     score = bleu.corpus_score(all_hypothesis, [all_references])
+    #     print(score)
+    #     out_file.write("{}".format(score))
+    #     print("输出文件路径：", out_path)
+    return '{}'.format(score)
 
 def ter_metric(all_hypothesis, all_references):
     ter = TER()
     score = ter.corpus_score(all_hypothesis, [all_references])
     print(score)
+    return '{}'.format(score)
 
 
 def chrf_metric(all_hypothesis, all_references):
     chrf = CHRF()
     score = chrf.corpus_score(all_hypothesis, [all_references])
     print(score)
+    return '{}'.format(score)
 
 
 def metric_from_file(hypothesis_path, references_path, size, metric_type):
@@ -57,15 +62,17 @@ def metric_from_file(hypothesis_path, references_path, size, metric_type):
     if size == -1:
         size = len(all_hypothesis)
     print("开始评测，数据量：", size)
+    result = ''
     if metric_type == "bleu":
-        bleu_metric(all_hypothesis[:size], all_references[:size])
+        result = bleu_metric(all_hypothesis[:size], all_references[:size])
     elif metric_type == "ter":
-        ter_metric(all_hypothesis[:size], all_references[:size])
+        result = ter_metric(all_hypothesis[:size], all_references[:size])
     elif metric_type == "chrf":
-        chrf_metric(all_hypothesis[:size], all_references[:size])
+        result = chrf_metric(all_hypothesis[:size], all_references[:size])
     end_time = time.time()
     duration = end_time - start_time
     print("持续时间：", duration)
+    return result
 
 
 if __name__ == "__main__":
@@ -79,8 +86,10 @@ if __name__ == "__main__":
     # hypothesis_path = '../data/predict/mscoco_t5_all.pred'
     # references_path = '../data/mscoco/test_target.txt'
     # BLEU = 24.15 55.5/31.2/20.3/13.8 (BP = 0.914 ratio = 0.918 hyp_len = 50822 ref_len = 55372)
-    hypothesis_path = '../../data/predict/qqp_5000_gen_1009.txt'
-    references_path = '../../data/qqp/tgt_test_1009.txt'
+    # hypothesis_path = '../../data/predict/qqp_5000_gen_1009.txt'
+    # references_path = '../../data/qqp/tgt_test_1009.txt'
+    hypothesis_path = '../../data/predict/jl_qqp_5000_gen_1013.txt'
+    references_path = '../../data/qqp/tgt_1013.txt'
 
     # 句子个数
     size = -1

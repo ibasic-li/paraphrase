@@ -17,7 +17,8 @@ def _strip(s):
     return s.strip()
 
 
-def compute_metrics(hypothesis, references, no_overlap=False, no_skipthoughts=False, no_glove=False):
+def compute_metrics(hypothesis, references, no_overlap=False, no_skipthoughts=False, no_glove=False, is_meteor=True,
+                    is_rouge=False, is_cider=False):
     with open(hypothesis, 'r', encoding='utf8') as f:
         hyp_list = f.readlines()
     ref_list = []
@@ -33,10 +34,13 @@ def compute_metrics(hypothesis, references, no_overlap=False, no_skipthoughts=Fa
     if not no_overlap:
         scorers = [
             # (Bleu(4), ["Bleu_1", "Bleu_2", "Bleu_3", "Bleu_4"]),
-            (Meteor(), "METEOR"),
-            (Rouge(), "ROUGE_L"),
-            (Cider(), "CIDEr")
         ]
+        if is_meteor:
+            scorers.append((Meteor(), "METEOR"))
+        if is_cider:
+            scorers.append((Cider(), "CIDEr"))
+        if is_rouge:
+            scorers.append((Rouge(), "ROUGE_L"))
         for scorer, method in scorers:
             score, scores = scorer.compute_score(refs, hyps)
             if isinstance(method, list):
@@ -226,7 +230,6 @@ class NLGEval(object):
         if 'CIDEr' not in self.metrics_to_omit:
             self.scorers.append((Cider(), "CIDEr"))
 
-
     def load_skipthought_model(self):
         from nlgeval.skipthoughts import skipthoughts
         import numpy as np
@@ -267,8 +270,10 @@ class NLGEval(object):
         if not self.no_skipthoughts:
             vector_hyps = self.skipthought_encoder.encode([h.strip() for h in hyp_list], verbose=False)
             ref_list_T = self.np.array(ref_list).T.tolist()
-            vector_refs = map(lambda refl: self.skipthought_encoder.encode([r.strip() for r in refl], verbose=False), ref_list_T)
-            cosine_similarity = list(map(lambda refv: self.cosine_similarity(refv, vector_hyps).diagonal(), vector_refs))
+            vector_refs = map(lambda refl: self.skipthought_encoder.encode([r.strip() for r in refl], verbose=False),
+                              ref_list_T)
+            cosine_similarity = list(
+                map(lambda refv: self.cosine_similarity(refv, vector_hyps).diagonal(), vector_refs))
             cosine_similarity = self.np.max(cosine_similarity, axis=0).mean()
             ret_scores['SkipThoughtCS'] = cosine_similarity
 
@@ -305,8 +310,10 @@ class NLGEval(object):
         if not self.no_skipthoughts:
             vector_hyps = self.skipthought_encoder.encode([h.strip() for h in hyp_list], verbose=False)
             ref_list_T = self.np.array(ref_list).T.tolist()
-            vector_refs = map(lambda refl: self.skipthought_encoder.encode([r.strip() for r in refl], verbose=False), ref_list_T)
-            cosine_similarity = list(map(lambda refv: self.cosine_similarity(refv, vector_hyps).diagonal(), vector_refs))
+            vector_refs = map(lambda refl: self.skipthought_encoder.encode([r.strip() for r in refl], verbose=False),
+                              ref_list_T)
+            cosine_similarity = list(
+                map(lambda refv: self.cosine_similarity(refv, vector_hyps).diagonal(), vector_refs))
             cosine_similarity = self.np.max(cosine_similarity, axis=0).mean()
             ret_scores['SkipThoughtCS'] = cosine_similarity
 

@@ -5,3 +5,5 @@ checkpoints
 __pycache__
 data
 .pytest_cache
+.gz
+output
