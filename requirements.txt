@@ -4,3 +4,4 @@ sumeval>=0.2.2
 six>=1.16.0
 ipython>=7.27.0
 py-rouge>=1.1
+flask>=2.0.2

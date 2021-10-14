@@ -62,14 +62,19 @@ def metric():
                 cnt += 1
         print(file_path_list)
         size = -1
-        result = metric_from_file(hypothesis=file_path_list[0], references=file_path_list[1], size=size)
+        result_list = metric_from_file(hypothesis=file_path_list[0], references=file_path_list[1], size=size)
+        output_result = ''
+        for result in result_list:
+            output_result += '{} </br>'.format(result)
         # context['failed_number'] = cnt
         # return render_template('upload.html', **context)
         # return redirect(url_for('upload'))
-        return '<p>{}</p>'.format(result)
+        return '<p>{}</p>'.format(output_result)
     else:
         return app.send_static_file('metric.html')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(
+        host='10.0.12.172',
+        debug=True)
